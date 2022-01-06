@@ -11,10 +11,29 @@
 	<th:block layout:fragment="content">
 		<form th:action="@{/reports/html}" th:method="get">
 			<select name="state">
-				<option>Select</option>
+				<option>Selecione</option>
+				<option th:each="state : ${states}" th:value="${state.id}" th:text="${state.name}"></option>
 			</select>
 			<button type="submit">Generate Report</button>
 		</form>
+		<br />
+		<br />
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>NOME</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="city : ${list}">
+						<td th:text="${city.id}"></td>
+						<td th:text="${city.name}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
     </th:block>	
 </body>
 </html>

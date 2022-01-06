@@ -1,5 +1,6 @@
 package dev.danielviana.relatorio.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class CityServiceImpl implements CityService{
         city.setState_id(state.get());
 
         return cityRepository.save(city);
+    }
+
+
+    @Override
+    public List<City> reportAllCitiesByState(Long stateId) {
+        return cityRepository.findAllCitiesByState(stateId);
     }
 
     
