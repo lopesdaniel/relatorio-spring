@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import dev.danielviana.relatorio.model.ReportChart;
 import dev.danielviana.relatorio.model.State;
 import dev.danielviana.relatorio.repository.StateRepository;
 
@@ -26,6 +27,11 @@ public class StateServiceImpl implements StateService{
     @Override
     public Iterable<State> findAll() {
         return stateRepository.findAll();
+    }
+
+    @Override
+    public List<ReportChart> countCitiesByState() {
+        return stateRepository.countCitiesByState();
     }
 
 }
